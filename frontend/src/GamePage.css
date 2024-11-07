@@ -1,0 +1,254 @@
+.body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vh;
+}
+.labelHolder {
+    width: 50vw;
+    min-height: 50px; /* Set a minimum height */
+    height: auto; /* Allow height to adjust */
+    padding: 10px;
+    font-size: 1.6rem;
+    background-color: white;
+    box-sizing: border-box;
+    user-select: none;
+}
+.highlight {
+    background-color: lightgreen; /* Highlight color */
+}
+.inputHolder{
+    width: 50vw;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px #000 solid;
+    font-size: 1.6rem;
+}
+.opponenetDiv{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 10px #91266A solid;
+    border-radius: 1rem;
+    padding: 1vw;
+}
+.opponenetDiv .labelHolder{
+    width: 48vw;
+}
+.opponentHeader{
+    text-decoration: underline;
+}
+.carRacingDiv{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 50vw;
+    background-color: white;
+    border: #000 solid 5px;
+    padding: 0 1vw;
+}
+.carDiv{
+    position: relative;
+    height: 10vh;
+    width: 47vw;
+    border-bottom: #000 solid 5px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vw;
+}
+.carWrapperDiv{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0px;
+    left: 0vw;
+}
+.carImg{
+    width: 5vw;
+    height: 3vw;
+}
+
+
+
+.winDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    z-index: 1000; /* Ensure it appears above everything */
+    flex-direction: column;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .winDiv h1 {
+    font-size: 4rem;
+    color: #ffd700; /* Gold color for text */
+    margin-bottom: 1rem;
+  }
+  
+  .winDiv p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+  
+  .winDiv button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #4caf50; /* Green button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .winDiv button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  .trophyImage {
+    width: 300px; 
+    margin: 20px 0;
+    animation: bounce 1.5s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Bounces up */
+    }
+  }
+
+  .lostDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 999;
+  }
+  
+  .lostDiv h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ff5555;
+  }
+  
+  .lostDiv p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .danceImage {
+    width: 300px;
+    margin: 20px 0;
+    opacity: 0.9;
+    animation: takeTheLDance 8s infinite;
+  }
+  
+  @keyframes takeTheLDance {
+    0% { transform: rotate(0deg) translateX(0); }
+    10% { transform: rotate(-10deg) translateX(-10px); }
+    20% { transform: rotate(10deg) translateX(10px); }
+    30% { transform: rotate(-10deg) translateX(-10px); }
+    40% { transform: rotate(10deg) translateX(10px); }
+    50% { transform: rotate(-10deg) translateX(-10px); }
+    60% { transform: rotate(10deg) translateX(10px); }
+    70% { transform: rotate(-10deg) translateX(-10px); }
+    80% { transform: rotate(10deg) translateX(10px); }
+    90% { transform: rotate(-10deg) translateX(-10px); }
+    100% { transform: rotate(0deg) translateX(0); }
+  }
+  
+  .lostDiv button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ff5555;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lostDiv button:hover {
+    background-color: #ff4444;
+  }
+  
+
+
+.loadingHeader{
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    font-size: 3vw;
+    font-family: 'Roboto', sans-serif;
+    color: transparent; /* Make the text color transparent */
+    background: linear-gradient(180deg, rgb(14, 12, 12) 20%,#BD318A 90%);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* For non-webkit browsers */
+}
+.loadingbox{
+    margin-top: 15vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.loadingIcon{
+    position: relative;
+    background-color: transparent;
+    animation-name: InfiniteMotion;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;     
+}
+.loopeImage{
+    width: 10vw;
+    height: 8vw;
+}
+@keyframes RectangleMotion {
+    25% {transform: translateX(150px) translateY(0px);}
+    50% { transform: translateX(150px) translateY(150px); }
+    75% { transform: translateX(0px) translateY(150px); }
+    100%{ transform: translateX(0px) translateY(0px);}   
+}
+
+@keyframes InfiniteMotion {
+    20% {transform: translateX(-150px) translateY(-150px);}
+    40% {transform: translateX(-150px) translateY(150px);}
+    60% {transform: translateX(150px) translateY(-150px);}
+    80% {transform: translateX(150px) translateY(+150px);}
+    100% {transform: translateX(0px) translateY(0px);}
+}
+
+@keyframes circularMotion {
+    0% { transform: rotate(0deg) translateX(50px); }
+    25% { transform: rotate(90deg) translateX(50px); }
+    50% { transform: rotate(180deg) translateX(50px); }
+    75% { transform: rotate(270deg) translateX(50px); }
+    100% { transform: rotate(360deg) translateX(50px); }
+}

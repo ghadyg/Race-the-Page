@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html {
+    background-image: linear-gradient(180deg, rgba(171, 171, 171, 0.6) 60%, #eee 99%),url('background1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
+    
+}
+
+.mainBody{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header{
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    font-size: 3vw;
+    font-family: 'Roboto', sans-serif;
+    color: transparent; /* Make the text color transparent */
+    background: linear-gradient(180deg, rgb(14, 12, 12) 20%,#BD318A 90%);
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* For non-webkit browsers */
+}
+.gameBody{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vh;
+}
+.gameBtn, .popupDiv{
+    box-sizing: border-box; /* Ensures borders are included in the width and height */
+    width: 24vw;
+    border-radius: 1rem;
+    border: 10px #91266A solid;
+    background-color: black;
+}
+
+/* Additional styles specific to each element */
+.gameBtn {
+    height: 6vh;
+    color: #eee;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.popupDiv {
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+.codeInput{
+    border: 1px #eee solid;
+    border-radius: 2rem;
+    color:#eee;
+    background-color: black;
+    height: 3vh;
+    width: 12vw;
+    font-size: large;
+    text-align: center;
+}
+.errorlbl{
+    color: red;
+    font-size: large;
+}
+.submitCodeBtn{
+    border-radius: 1rem;
+    border: 3px #91266A solid;
+    background-color: black;
+    width: 10vw;
+    height: 3vh;
+    color: #eee;
+    font-size: large;
+    cursor: pointer;
+}
+
+
+/* For screens below 850px width and with an aspect ratio close to 9:16 */
+@media screen and (max-width: 850px) and (min-aspect-ratio: 8/16) and (max-aspect-ratio: 10/16) {
+    html {
+        background-image: url('916background.png');
+    }
+    .header{
+        font-size: 5vw;
+    }
+}
+
+/* For screens below 850px width and with an aspect ratio close to 4:5 */
+@media screen and (max-width: 850px) and (min-aspect-ratio: 3/5) and (max-aspect-ratio: 5/5) {
+    html {
+        background-image: url('45background.png');
+    }
+    .header{
+        font-size: 5vw;
+    }
+}
+
+/* Default values for screens below 850px width */
+@media screen and (max-width: 850px){
+    html {
+        background-image: url('916background.png');
+    }
+    .header{
+        font-size: 5vw;
+    }
+}
+
