@@ -14,7 +14,7 @@ import java.util.Set;
 public class WebSocketHandler extends TextWebSocketHandler {
     public static final HashMap<String,GameSession> games = new HashMap<>();
 
-    public String paragraph = "I said that I would see you because I had heard that you were a serious man. A man to be treated with respect but I must say no to you and I will give you my reasons. It's true, I have a lot of friends in politics.But they wouldn't be so friendly if they knew my business was drugs instead of gambling which they consider a harmless vice, but drugs, that's a dirty business.";
+    //public String paragraph = "I said that I would see you because I had heard that you were a serious man. A man to be treated with respect but I must say no to you and I will give you my reasons. It's true, I have a lot of friends in politics.But they wouldn't be so friendly if they knew my business was drugs instead of gambling which they consider a harmless vice, but drugs, that's a dirty business.";
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws IOException {
         if(session.getUri() == null)
@@ -23,7 +23,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         if(code.isEmpty())
             session.close();
         System.out.println("connected");
-        games.putIfAbsent(code,new GameSession(paragraph));
+        games.putIfAbsent(code,new GameSession(generateParagraph.getRandomPhrase()));
         Set<WebSocketSession> players = games.get(code).getPlayers();
         players.add(session);
         if(players.size()==2)

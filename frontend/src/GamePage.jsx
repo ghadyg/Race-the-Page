@@ -17,6 +17,7 @@
     const [highlightedMessage, setHighlightedMessage] = useState("");
     const [notHighlightedMessage, setNotHighlightedMessage] = useState(messageToType);
     const [receivedMesg, setReceivedMesg] = useState("");
+    const [countdown, setCountdown] = useState(null);
     const nav = useNavigate();
 
 
@@ -29,10 +30,10 @@
       };
     
       newSocket.onmessage = (event) => {
-        console.log(event.data);
           if(event.data.startsWith("Game starting with phrase: "))
           {  
             setGameStarted(true);
+            setCountdown(3);
             const startPhraseLength = "Game starting with phrase: ".length;
             const paragraph = event.data.slice(startPhraseLength);
             setMessageToType(paragraph);
@@ -57,10 +58,6 @@
           {
             const typedText = event.data;
             setReceivedMesg(event.data);
-            if (messageToType.startsWith(typedText)) {
-              const myCarDistance = (typedText.length/messageToType.length) * 42;
-              document.getElementById('opponentCar').style.left = myCarDistance+"vw";
-            }
           }
       };
     
@@ -90,6 +87,25 @@
         initializeSocket(code);
     },[])
 
+    useEffect(() => {
+      if (countdown !== null && countdown > 0) {
+        const timer = setTimeout(() => {
+          setCountdown(countdown - 1);
+        }, 1000);
+        return () => clearTimeout(timer);
+      } else if (countdown === 0) {
+        setCountdown(null); // Reset countdown
+      }
+    }, [countdown]);
+
+    useEffect(()=>{
+      if (messageToType.startsWith(receivedMesg)) {
+        const myCarDistance = (receivedMesg.length/messageToType.length) * 42;
+        const opponentCar = document.getElementById('opponentCar');
+        if(opponentCar)
+          opponentCar.style.left = myCarDistance+"vw";
+      }
+    },[receivedMesg])
 
     const handleInputChange = (e) => {
       const typedText = e.target.value;
@@ -97,7 +113,6 @@
       newSocket.send(typedText);
 
       if (messageToType.startsWith(typedText)) {
-         
           const myCarDistance = (typedText.length/messageToType.length) * 42;
           document.getElementById('myCar').style.left = myCarDistance+"vw";
           setHighlightedMessage(typedText);
@@ -122,6 +137,11 @@
     {
       return(
       <>
+        {countdown !== null &&  
+        <div className="countdown">
+          <h1>{countdown}</h1>
+        </div>
+        }
         <div className='body'>
           <div className='carRacingDiv'>
             <div className='carDiv'>
